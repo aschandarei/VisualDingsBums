@@ -1,0 +1,60 @@
+﻿<Window x:Class="VisualDingsBums.BrainVixx"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="SingleBorderWindow"
+        Icon="..\IMAGES\BF.ico"
+        ResizeMode="NoResize"
+        Title="Brain Vixx" Height="300" Width="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Button Name="Move_to_previous" ToolTip="Move to previos cell" Click="Move_to_previous_Click" Margin="5" Grid.Row="0" Grid.Column="0">
+            <Image Source="..\IMAGES\Previous.png" Height="32" Width="32"/>
+        </Button>
+        <Button Name="Move_to_next" ToolTip="Move to next cell" Click="Move_to_next_Click"  Margin="5" Grid.Row="0" Grid.Column="1">
+            <Image Source="..\IMAGES\Next.png" Height="32" Width="32"/>
+        </Button>
+
+        <Button Name="Increment" ToolTip="Increment" Click="Increment_Click"  Margin="5" Grid.Row="1" Grid.Column="0">
+            <Image Source="..\IMAGES\Increment.png" Height="32" Width="32"/>
+        </Button>
+
+        <Button Name="Decrement" ToolTip="Decrement" Click="Decrement_Click"  Margin="5" Grid.Row="1" Grid.Column="1">
+            <Image Source="..\IMAGES\Decrement.png" Height="32" Width="32"/>
+        </Button>
+
+
+        <Button Name="Input" ToolTip="Input" Click="Input_Click"  Margin="5" Grid.Row="2" Grid.Column="0">
+            <Image Source="..\IMAGES\Input.png" Height="32" Width="32"/>
+        </Button>
+        <Button Name="Output" ToolTip="Output" Click="Output_Click"  Margin="5" Grid.Row="2" Grid.Column="1">
+            <Image Source="..\IMAGES\Output.png" Height="32" Width="32"/>
+        </Button>
+
+
+        <Button Name="Clear_memory" Content="Clear memory" Click="Clear_memory_Click"  Margin="5" Grid.Row="3" Grid.Column="0"/>
+        <Button Name="Clear_last" Content="Remove Last" Click="Clear_last_Click"  Margin="5" Grid.Row="3" Grid.Column="1"/>
+
+        <Button Name="Cancel" Content="Cancel" Click="Cancel_Click"  Margin="5" Grid.Row="4" Grid.Column="0"/>
+        <Button Name="OK" Content="OK" Click="Button_Click"  Margin="5" Grid.Row="4" Grid.Column="1"/>
+
+        <ListView Grid.Row="0" Grid.Column="2" Grid.RowSpan="5" ItemsSource="{Binding Runs, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Text}" Foreground="{Binding Foreground}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>

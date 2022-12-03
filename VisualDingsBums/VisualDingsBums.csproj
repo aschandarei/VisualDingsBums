@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EC27F537-66E9-440A-BEF7-449FE79B03AE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VisualDingsBums</RootNamespace>
+    <AssemblyName>VisualDingsBums</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>BF.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="VDBOBJECTS\BFDialects.cs" />
+    <Compile Include="VDBOBJECTS\BrainFuckCommand.cs" />
+    <Compile Include="VDBOBJECTS\BrainFuckDialect.cs" />
+    <Compile Include="VDBOBJECTS\BrainFuckLanguageItem.cs" />
+    <Compile Include="VDBOBJECTS\StepMode.cs" />
+    <Compile Include="WINDOWS\BrainVixx.xaml.cs">
+      <DependentUpon>BrainVixx.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WINDOWS\ColorSelector.xaml.cs">
+      <DependentUpon>ColorSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WINDOWS\DialectBrowser.xaml.cs">
+      <DependentUpon>DialectBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WINDOWS\DialectSelector.xaml.cs">
+      <DependentUpon>DialectSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WINDOWS\FontWeightSelector.xaml.cs">
+      <DependentUpon>FontWeightSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WINDOWS\FontStyleSelector.xaml.cs">
+      <DependentUpon>FontStyleSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WINDOWS\InputBox.xaml.cs">
+      <DependentUpon>InputBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VDBOBJECTS\MemoryItem.cs" />
+    <Compile Include="VDBOBJECTS\ProgrammElement.cs" />
+    <Compile Include="WINDOWS\RunStep.xaml.cs">
+      <DependentUpon>RunStep.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WINDOWS\STDINView.xaml.cs">
+      <DependentUpon>STDINView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WINDOWS\STDOUTView.xaml.cs">
+      <DependentUpon>STDOUTView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WINDOWS\WindowMemoryView.xaml.cs">
+      <DependentUpon>WindowMemoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VDBOBJECTS\WPFCommands.cs" />
+    <Page Include="WINDOWS\BrainVixx.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WINDOWS\ColorSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WINDOWS\DialectBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WINDOWS\DialectSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WINDOWS\FontWeightSelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WINDOWS\FontStyleSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WINDOWS\InputBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="WINDOWS\RunStep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WINDOWS\STDINView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WINDOWS\STDOUTView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WINDOWS\WindowMemoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\BF.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Exit.png" />
+    <Resource Include="IMAGES\Remote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Run.png" />
+    <Resource Include="IMAGES\Run_Step.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="BF.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\New.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Breakpoint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Change.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\ClearBreakpoint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Command.png" />
+    <Resource Include="IMAGES\Style.png" />
+    <Resource Include="IMAGES\Weight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Decrement.png" />
+    <Resource Include="IMAGES\Increment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Input.png" />
+    <Resource Include="IMAGES\Output.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Next.png" />
+    <Resource Include="IMAGES\Previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMAGES\Down.png" />
+    <Resource Include="IMAGES\Up.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

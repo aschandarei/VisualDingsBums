@@ -1,0 +1,24 @@
+﻿<Window x:Class="VisualDingsBums.WINDOWS.RunStep"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Icon="..\IMAGES\BF.ico"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        Title="Visual DingsBums - Run in Step-By-Step mode" Height="100" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Margin="5"  Text="{Binding Hint, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}" Grid.Row="0" Grid.ColumnSpan="3"/>
+        <Button Content="Cancel" Click="Button_Click" Grid.Row="1" Grid.Column="0" Margin="5" Tag="Cancel"/>
+        <Button Content="Run to next" Click="Button_Click" Grid.Row="1" Grid.Column="1" Margin="5" Tag="Run"/>
+        <Button Content="Next step" Click="Button_Click" Grid.Row="1" Grid.Column="2" Margin="5" Tag="NextStep"/>
+    </Grid>
+</Window>

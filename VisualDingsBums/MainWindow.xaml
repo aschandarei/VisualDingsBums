@@ -1,0 +1,122 @@
+﻿<Window x:Class="VisualDingsBums.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wc ="clr-namespace:VisualDingsBums"
+        Closing="Window_Closing"
+        Loaded="Window_Loaded"
+        Title="VisualDingsBums"
+        Icon="IMAGES\BF.ico"
+        Height="350"
+        Width="525">
+    <Window.CommandBindings>
+        <CommandBinding Command="wc:WPFCommands.ClearAllBreakpoints" CanExecute="ClearAllBreakpoints_CanExecute"  Executed="ClearAllBreakpoints_Executed" />
+        <CommandBinding Command="wc:WPFCommands.ToggleBreakpoint" CanExecute="ToggleBreakpoint_CanExecute"  Executed="ToggleBreakpoint_Executed" />
+        <CommandBinding Command="wc:WPFCommands.RunStep" CanExecute="RunStep_CanExecute" Executed="RunStep_Executed" />
+        <CommandBinding Command="wc:WPFCommands.RunFull" CanExecute="RunFull_CanExecute" Executed="RunFull_Executed" />
+        <CommandBinding Command="wc:WPFCommands.FileOpen" CanExecute="FileOpen_CanExecute" Executed="FileOpen_Executed" />
+        <CommandBinding Command="wc:WPFCommands.FileSave" CanExecute="FileSave_CanExecute" Executed="FileSave_Executed" />
+        <CommandBinding Command="wc:WPFCommands.FileSaveAs" CanExecute="FileSaveAs_CanExecute" Executed="FileSaveAs_Executed" />
+        <CommandBinding Command="wc:WPFCommands.FileNew" CanExecute="FileNew_CanExecute" Executed="FileNew_Executed" />
+        <CommandBinding Command="wc:WPFCommands.AppQuit" CanExecute="AppQuit_CanExecute" Executed="AppQuit_Executed" />
+        <CommandBinding Command="wc:WPFCommands.ChangeDialectCommand" CanExecute="ChangeDialect_CanExecute" Executed="ChangeDialect_Executed" />
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Menu Grid.Row="0">
+            <MenuItem Name="mnuFile" Header="File">
+                <MenuItem Name="mnuNew" Header="New" Command="wc:WPFCommands.FileNew">
+                    <MenuItem.Icon>
+                        <Image Source="IMAGES/new.png" Height="16" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Name="mnuOpenFile" Header="Open" Command="wc:WPFCommands.FileOpen">
+                    <MenuItem.Icon>
+                        <Image Source="IMAGES/open.png" Height="16" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Name="mnuSaveFile" Header="Save" Command="wc:WPFCommands.FileSave">
+                    <MenuItem.Icon>
+                        <Image Source="IMAGES/save.png" Height="16" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Name="mnuSaveAsFile" Header="Save As" Command="wc:WPFCommands.FileSaveAs">
+                    <MenuItem.Icon>
+                        <Image Source="IMAGES/save.png" Height="16" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Name="mnuExit" Header="Quit" Command="wc:WPFCommands.AppQuit">
+                    <MenuItem.Icon>
+                        <Image Source="IMAGES/exit.png" Height="16" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Name="mnuEdit" Header="Edit">
+                <MenuItem Name="mnuCopy" Header="Copy" Command="Copy">
+                    <MenuItem.Icon>
+                        <Image Source="IMAGES/copy.png" Height="16" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                    
+                <MenuItem Name="mnuCut" Header="Cut" Command="Cut">
+                    <MenuItem.Icon>
+                        <Image Source="IMAGES/cut.png" Height="16" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Name="mnuPaste" Header="Paste" Command="Paste">
+                    <MenuItem.Icon>
+                        <Image Source="IMAGES/paste.png" Height="16" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Name="mnuChangeDialect" Header="Change dialect" Command="wc:WPFCommands.ChangeDialectCommand">
+                    <MenuItem.Icon>
+                        <Image Source="IMAGES/change.png" Height="16" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Name="mnuRun" Header="Run">
+                <MenuItem Name="mnuRunFull" Header="Run" Command="wc:WPFCommands.RunFull" >
+                    <MenuItem.Icon>
+                        <Image Source="IMAGES/Run.png" Height="16" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Name="mnuRunStep" Header="Step-by-Step" Command="wc:WPFCommands.RunStep" >
+                    <MenuItem.Icon>
+                        <Image Source="IMAGES/Run_Step.png" Height="16" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Name="mnuToggleBreakpoint" Header="Toggle Breakpoint" Command="wc:WPFCommands.ToggleBreakpoint" >
+                    <MenuItem.Icon>
+                        <Image Source="IMAGES/Breakpoint.png" Height="16" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Name="mnuClearBreakpoints" Header="Clear Breakpoints" Command="wc:WPFCommands.ClearAllBreakpoints" >
+                    <MenuItem.Icon>
+                        <Image Source="IMAGES/ClearBreakpoint.png" Height="16" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Name="mnuBrainVixx" Header="Brain Vixx" Click="mnuBrainVixx_Click">
+                    <MenuItem.Icon>
+                        <Image Source="IMAGES/remote.png" Height="16" Width="16"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        
+        <RichTextBox Name="rtfBox" Grid.Row="2" TextChanged="rtfBox_TextChanged" SelectionChanged="rtfBox_SelectionChanged" IsEnabled="False" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+        <StatusBar Grid.Row="3">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="TextBlockStatus"/>
+            </StackPanel>
+        </StatusBar>
+    </Grid>
+</Window>

@@ -1,0 +1,31 @@
+﻿<Window x:Class="VisualDingsBums.FontWeightSelector"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStartupLocation="CenterOwner"
+        Icon="..\IMAGES\BF.ico"
+        ResizeMode="NoResize"
+        Title="Visual Ding Bums - Font weight selector" Height="130" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Font weight:" Grid.ColumnSpan="2" Grid.Row="0" Margin="5"/>
+        
+        <ComboBox Name="ComboBoxFontStyle" Grid.ColumnSpan="2" Grid.Row="1" Margin="5" >
+            <ComboBoxItem>Normal</ComboBoxItem>
+            <ComboBoxItem>Medium</ComboBoxItem>
+            <ComboBoxItem>Bold</ComboBoxItem>
+        </ComboBox>
+        
+        <Button Name="ButtonCancel" Content="Cancel" Click="ButtonCancel_Click" Grid.Row="2" Grid.Column="0" Margin="5"/>
+        <Button Name="ButtonOK" Content="OK" Click="ButtonOK_Click"  Grid.Row="2" Grid.Column="1" Margin="5"/>
+    </Grid>
+</Window>

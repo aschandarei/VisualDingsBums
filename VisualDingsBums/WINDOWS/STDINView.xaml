@@ -1,0 +1,12 @@
+﻿<Window x:Class="VisualDingsBums.STDINView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="STDIN" Height="60" Width="300"
+        Icon="..\IMAGES\BF.ico"
+        ResizeMode="NoResize"
+        Loaded="Window_Loaded"
+        WindowStartupLocation="CenterOwner">
+    <Grid>
+        <TextBox Name="TextBoxSTDIN" KeyDown="TextBoxSTDIN_KeyDown"/>
+    </Grid>
+</Window>

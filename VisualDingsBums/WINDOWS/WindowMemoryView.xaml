@@ -1,0 +1,95 @@
+﻿<Window x:Class="VisualDingsBums.WindowMemoryView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Brain section"
+        Height="300"
+        Width="300"
+        MaxWidth="300"
+        MinWidth="300"
+        ShowInTaskbar="False"
+        Icon="..\IMAGES\BF.ico"
+        Closing="Window_Closing">
+    <Window.Resources>
+        <Style TargetType="ListViewItem">
+            <Style.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Red"/>
+                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightBrushKey}" Color="Red"/>
+                <SolidColorBrush x:Key="{x:Static SystemColors.InactiveSelectionHighlightTextBrushKey}" Color="White"/>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="3 0 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0">
+                <TextBlock HorizontalAlignment="Center" Text="ID"/>
+            </Border>
+
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1">
+                <TextBlock HorizontalAlignment="Center" Text="DEC"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2">
+                <TextBlock HorizontalAlignment="Center" Text="Char"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3">
+                <TextBlock HorizontalAlignment="Center" Text="HEX"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="4">
+                <TextBlock HorizontalAlignment="Center" Text="BIN"/>
+            </Border>
+        </Grid>
+
+        <ListView Name="ListViewMemory" ItemsSource="{Binding ProgrammMemory,
+                                        RelativeSource={RelativeSource Mode=FindAncestor,
+                                                                       AncestorType=Window}}" Grid.Row="1" BorderThickness="0"
+                  SelectedItem="{Binding CurrentItem,
+                                        RelativeSource={RelativeSource Mode=FindAncestor,
+                                                                       AncestorType=Window}}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0">
+                            <TextBlock HorizontalAlignment="Right" Text="{Binding ID}" Margin="0 0 4 0"/>
+                        </Border>
+
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1">
+                            <TextBlock HorizontalAlignment="Right" Text="{Binding Value}" Margin="0 0 4 0"/>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2">
+                            <TextBlock HorizontalAlignment="Right" Text="{Binding Char}" Margin="0 0 4 0"/>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="3">
+                            <TextBlock HorizontalAlignment="Right" Text="{Binding HEX}" Margin="0 0 4 0"/>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="4">
+                            <TextBlock HorizontalAlignment="Right" Text="{Binding BIN}" Margin="0 0 4 0"/>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Border Grid.RowSpan="2" Background="Transparent" Visibility="{Binding ClickPreventer, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window}}"/>
+    </Grid>
+</Window>
